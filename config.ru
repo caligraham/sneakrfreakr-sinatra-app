@@ -8,6 +8,8 @@ end
 #where I will mount other controller 'use'
 #so I can send PATCH & DELETE requests
 
+use UsersController
+
 use Rack::MethodOverride
 
 run ApplicationController
