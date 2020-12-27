@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
     #Rendering login form
     get '/login' do
-       erb :login 
+       erb :'/users/login'
     end
 
     #Receiving data(params) from login form
@@ -20,9 +20,28 @@ class UsersController < ApplicationController
     end
 
     #users collection route
-    get '/users/:id' do
-        binding.pry
-        "users collection page!"
+    get "/users/:id" do
+        #find user
+        @user = User.find_by(id: params[:id])
+        erb :'/users/collection'
+        
     end
+
+    get '/signup' do
+        erb :'/users/signup'
+    end
+
+    post '/users' do
+        @user = User.create(params)
+        session[:user_id] = @user.id
+        redirect "/users/#{@user.id}"
+    end
+
+    get '/logout' do
+        session.clear
+        redirect '/'
+    end
+
+
 
 end
