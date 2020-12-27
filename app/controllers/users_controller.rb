@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 
     #users collection route
     get '/users/:id' do
+        binding.pry
         "users collection page!"
     end
 
