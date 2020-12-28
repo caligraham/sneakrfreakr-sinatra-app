@@ -26,6 +26,14 @@
       </div>
     </nav>
 
+      <div class="nav">
+        <% if logged_in? %>
+          <a href="/posts">All Posts</a>
+          <a href="/">Create New Post</a>
+          <a href="/logout">Log Out</a>
+        <% end %> 
+      </div>
+
     <div class="container">
       <%= yield %>
     </div>

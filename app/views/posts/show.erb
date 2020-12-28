@@ -1,0 +1,6 @@
+ <h3><%= @post.title %></h3>
+    <img src="<%= @post.image_url %>" alt="<%= @post.title %>" height="200" width="200">
+    <br><br>
+    <strong>Created at: <%= @post.created_at %></strong>
+    <p><%= @post.description %></p>
+    <p>Posted By: <%= @post.user.username %></p>
