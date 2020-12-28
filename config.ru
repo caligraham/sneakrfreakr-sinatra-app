@@ -9,6 +9,7 @@ end
 #so I can send PATCH & DELETE requests
 
 use UsersController
+use PostsController
 
 use Rack::MethodOverride
 
