@@ -4,3 +4,10 @@
     <strong>Created at: <%= @post.created_at %></strong>
     <p><%= @post.description %></p>
     <p>Posted By: <%= @post.user.username %></p>
+
+    <a href="/posts/<%= @post.id %>/edit">Edit Post</a>
+
+    <form class="" action="/posts/<%= @post.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" name="" value="Delete This Post">
+    </form>

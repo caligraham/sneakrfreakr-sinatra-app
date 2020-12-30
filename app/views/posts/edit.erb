@@ -1,0 +1,15 @@
+<h1>Edit Post!</h1>
+
+<form class="" action="/posts/<%= @post.id %>" method="post">
+<input type="hidden" name="_method" value="patch">
+<label for="title">Title:</label>
+<input type="text" name="title" value="<%= @post.title %>">
+<br>
+<label for="image_url">Image URL:</label>
+<input type="text" name="image_url" value="<%= @post.image_url %>">
+<br>
+<label for="description">Description:</label>
+<textarea name="description" style="width:600; height:auto;"><%= @post.description %></textarea>
+<br>
+<input type="submit" name="" value="Edit Post">
+</form>
