@@ -26,6 +26,15 @@
       </div>
     </nav>
 
+
+    <% if flash[:error] %>
+    <h5> style="color red"<%= flash[:error] %></h5>
+    <% end %>
+
+      <% if flash[:message] %>
+    <h5><%= flash[:message] %></h5>
+    <% end %>
+
       <div class="nav">
         <% if logged_in? %>
           <a href="/posts">All Posts</a>
