@@ -13,15 +13,29 @@ class PostsController < ApplicationController
 
 
     #Create - render a form for user to create a new post
-
-    get '/posts/new' do
+     get '/posts/new' do
+        if logged_in?
         erb :"posts/new"
+        else
+        flash[:error] = "You must be logged in to create a post"
+        redirect "/"
+        end
     end
 
     post '/posts' do
-       post = Post.create(title: params[:title], image_url: params[:image_url], description: params[:description], user_id: current_user.id)
+        #receives params user inputs to create new post
+        post = Post.create(title: params[:title], image_url: params[:image_url], description: params[:description], user_id: current_user.id)
+        if post.save
+        #^ .save triggers active record validations
+        #success message
+        flash[:message] = "Post created successfully!"
         # after creating post, redirect to post show page
         redirect "/posts/#{post.id}"
+        else
+            #error message using active record supplied messaging
+            flash[:error] = "Unable to create post: #{post.errors.full_messages.to_sentence}"
+            redirect "posts/new"
+        end
     end
 
     # an issue with the way code is ordered. 

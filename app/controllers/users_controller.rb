@@ -35,6 +35,7 @@ class UsersController < ApplicationController
         erb :'/signup'
     end
 
+    #receives post input data from user, creates user & logs in user
     post '/users' do
         @user = User.create(params)
         session[:user_id] = @user.id
