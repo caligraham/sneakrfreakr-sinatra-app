@@ -13,6 +13,7 @@ class ApplicationController < Sinatra::Base
     register Sinatra::Flash
   end
 
+  #this will keep track of the logged in user
   get '/' do
     if logged_in?
       redirect "/users/#{current_user.id}"
@@ -20,8 +21,7 @@ class ApplicationController < Sinatra::Base
     erb :welcome
     end
   end
-
-  #this will keep track of the logged in user
+  
   helpers do
 
     # returns boolean if user is logged in or not - double bang converts value
@@ -31,6 +31,18 @@ class ApplicationController < Sinatra::Base
 
     def current_user
       User.find_by(id: session[:user_id])
+    end
+
+    #authorization helper for editing & deleting posts
+    def authorized_to_edit?(post)
+      post.user == current_user
+    end
+
+    def redirect_if_not_logged_in
+      if !logged_in?
+        flash[:error] = "You must be logged in to view this page"
+        redirect '/login'
+      end
     end
 
   end

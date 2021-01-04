@@ -5,9 +5,14 @@
     <p><%= @post.description %></p>
     <p>Posted By: <%= @post.user.username %></p>
 
+
+    <% if authorized_to_edit?(@post) %>    
+    
     <a href="/posts/<%= @post.id %>/edit">Edit Post</a>
 
-    <form class="" action="/posts/<%= @post.id %>" method="post">
+    <form action="/posts/<%= @post.id %>" method="post">
     <input type="hidden" name="_method" value="delete">
-    <input type="submit" name="" value="Delete This Post">
+    <input type="submit" value="Delete This Post">
     </form>
+
+    <% end %>

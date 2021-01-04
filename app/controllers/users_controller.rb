@@ -37,9 +37,17 @@ class UsersController < ApplicationController
 
     #receives post input data from user, creates user & logs in user
     post '/users' do
-        @user = User.create(params)
+       
+        @user = User.new(params)
+        if @user.save
         session[:user_id] = @user.id
+        flash[:message] = "Welcome, #{@user.username}!"
         redirect "/users/#{@user.id}"
+        else
+            #invalid input
+        flash[:error] = "Invalid input: #{@user.errors.full_messages.to_sentence}"
+        redirect '/signup'
+        end
     end
 
     get '/logout' do
