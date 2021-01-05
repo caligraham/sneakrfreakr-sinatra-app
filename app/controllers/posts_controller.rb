@@ -59,7 +59,7 @@ class PostsController < ApplicationController
     end
    
     #Use PATCH method here.. 
-    post '/posts/:id' do 
+    patch '/posts/:id' do 
         
         find_post
         @post.update(title: params[:title], image_url: params[:image_url], description: params[:description])
