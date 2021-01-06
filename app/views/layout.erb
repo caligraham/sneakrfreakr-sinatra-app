@@ -20,13 +20,14 @@
   <body>
     <nav class="lime darken-4">
       <div class="nav-wrapper container">
-        <a href="/" class="brand-logo">Sneakr Freakr</a>
+        <a href="/" style="color:black" class="brand-logo">Sneakr Freakr</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
         </ul>
       </div>
+     
     </nav>
 
-
+   <div class="card-panel grey darken-3">
     <% if flash[:error] %>
     <h5 style="color:red;"><%= flash[:error] %></h5>
     <% end %>
@@ -46,6 +47,8 @@
     <div class="container">
       <%= yield %>
     </div>
+    </div>
+    
 
     <!--[if lt IE 7]>
       <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>

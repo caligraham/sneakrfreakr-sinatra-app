@@ -1,4 +1,4 @@
- <h3><%= @post.title %></h3>
+ <h3 style="color:#b39ddb;"><%= @post.title %></h3>
     <img src="<%= @post.image_url %>" alt="<%= @post.title %>" height="200" width="200">
     <br><br>
     <strong>Created at: <%= @post.created_at %></strong>
@@ -12,7 +12,7 @@
 
     <form action="/posts/<%= @post.id %>" method="post">
     <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete This Post">
+    <button class="btn waves-effect red accent-3" type="submit" name="action">Delete This Post</button>
     </form>
 
     <% end %>

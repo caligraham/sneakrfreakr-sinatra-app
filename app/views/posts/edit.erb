@@ -1,5 +1,5 @@
 
-<h1>Edit Post!</h1>
+<h1 style="color:#b39ddb;">Edit Post!</h1>
 
 <form class="" action="/posts/<%= @post.id %>" method="post">
 <input type="hidden" name="_method" value="patch">
@@ -12,6 +12,6 @@
 <label for="description">Description:</label>
 <textarea name="description" style="width:600; height:auto;"><%= @post.description %></textarea>
 <br>
-<input type="submit" name="" value="Edit Post">
+<button class="btn waves-effect deep-purple accent-2" type="submit" name="action">Edit Post!</button>
 
 </form>
