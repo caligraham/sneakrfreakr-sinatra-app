@@ -17,17 +17,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
   </head>
-  <body>
-    <nav class="lime darken-4">
-      <div class="nav-wrapper container">
-        <a href="/" style="color:black" class="brand-logo">Sneakr Freakr</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-        </ul>
-      </div>
-     
-    </nav>
+  <body class="grey darken-3">
+    <nav>
+    <div class="nav-wrapper lime darken-4">
+      <a href="#" class="brand-logo black-text">SneakrFreakr</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+       <% if logged_in? %>
+          <li><a class="black-text" href="/posts">All Posts</a></li>
+          <li><a class="black-text" href="/posts/new">Create New Post</a></li>
+          <li><a class="black-text" href="/logout">Log Out</a></li>
+          <li><a class="black-text" href="/users/<%=@current_user.id%>">My Posts</a></li>
+        <% end %> 
+      </ul>
+    </div>
+  </nav>
 
-   <div class="card-panel grey darken-3">
+ <div class="container" style="flex: 1 0 auto;">
+ <div class="card-panel" style="margin: 0; padding: 0;">
     <% if flash[:error] %>
     <h5 style="color:red;"><%= flash[:error] %></h5>
     <% end %>
@@ -35,25 +41,13 @@
       <% if flash[:message] %>
     <h5 style="color:magenta;"><%= flash[:message] %></h5>
     <% end %>
+    </div>
 
-      <div class="nav">
-        <% if logged_in? %>
-          <a href="/posts">All Posts</a>
-          <a href="/posts/new">Create New Post</a>
-          <a href="/logout">Log Out</a>
-          <a href="/users/<%=@current_user.id%>">My Posts</a>
-        <% end %> 
-      </div>
-
-    <div class="container">
       <%= yield %>
     </div>
-    </div>
+    <img src="/images/wave.svg" style="margin: 0; padding: 0;">
+   
     
-
-    <!--[if lt IE 7]>
-      <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
-      <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
-    <![endif]-->
+    
   </body>
 </html>
