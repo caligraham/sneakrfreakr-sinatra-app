@@ -1,3 +1,10 @@
-<h2><%= @user.username %></h2>
+<h2 style="color:#b39ddb;"><%= @user.username %></h2>
 <br>
 <img src="<%= @user.image_url %>" alt="<%= @user.username %> profile photo" class="circle responsive-img" height="90" width="90">
+
+<% @user.posts.each do |post| %>
+  <h4 style="color:#b39ddb;"><%= post.title %></h4>
+<img src="<%= post.image_url %>" alt="<%= post.title %>" height="200" width="200"><br>
+<p><%= post.description %></p>
+<strong>Created at: <%= post.created_at %></strong>
+<% end %>
