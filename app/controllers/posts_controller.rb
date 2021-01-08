@@ -2,8 +2,9 @@ class PostsController < ApplicationController
 
 
     #BUILDING OUT CRUD
+    
+    
     #Read - showing all posts
-
     get '/posts' do
         #attach the posts model so we can view all from double
         @posts = Post.all
@@ -46,7 +47,6 @@ class PostsController < ApplicationController
     #Update
     #Edit button that takes us to form
     #Render form to edit post
-    
     get '/posts/:id/edit' do
         redirect_if_not_logged_in
         find_post
@@ -60,7 +60,6 @@ class PostsController < ApplicationController
    
     #Use PATCH method here.. 
     patch '/posts/:id' do 
-        
         find_post
         @post.update(title: params[:title], image_url: params[:image_url], description: params[:description])
         redirect "/posts/#{@post.id}"
