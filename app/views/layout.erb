@@ -20,13 +20,13 @@
   <body class="grey darken-3">
     <nav>
     <div class="nav-wrapper lime darken-4">
-      <a href="#" class="brand-logo black-text">SneakrFreakr</a>
+      <a href="/posts" class="brand-logo black-text">SneakrFreakr</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
        <% if logged_in? %>
           <li><a class="black-text" href="/posts">All Posts</a></li>
           <li><a class="black-text" href="/posts/new">Create New Post</a></li>
-          <li><a class="black-text" href="/logout">Log Out</a></li>
           <li><a class="black-text" href="/users/<%=@current_user.id%>">My Posts</a></li>
+          <li><a class="black-text" href="/logout">Log Out</a></li>
         <% end %> 
       </ul>
     </div>
