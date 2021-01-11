@@ -6,7 +6,5 @@ class User < ActiveRecord::Base
 
     validates :username, uniqueness: true
 
-    def self.search(query)
-        where("username LIKE ?", "%#{query}%")
-    end
+    
 end

@@ -5,11 +5,12 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 
-#where I will mount other controller 'use'
-#so I can send PATCH & DELETE requests
+
+#Sinatra Middleware that lets our app send patch requests.
 
 use Rack::MethodOverride
 
+#where I will mount other controllers 'use'
 use UsersController
 use PostsController
 
