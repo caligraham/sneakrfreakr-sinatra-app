@@ -7,7 +7,7 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     # enables sessions hash
     enable :sessions
-    # set session secret for additional layer of security
+    # set session secret(encryption key) for additional layer of security
     set :session_secret, "secret_session"
     # registering flash gem to enable use of "messaging"
     register Sinatra::Flash
