@@ -5,6 +5,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :image_url
       t.text :description
       t.integer :user_id
+      #foreign key goes with the belongs to model
 
       t.timestamps null: false
     end
