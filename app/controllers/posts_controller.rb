@@ -1,28 +1,17 @@
 class PostsController < ApplicationController
 
-    get '/posts' do
-        redirect_if_not_logged_in
-        if params[:query]
-          # only exist if search is filled out
-          # search for posts based on query
-          @posts = Post.search(params[:query])
-        else # search is not filled out so show all posts
-          @posts = Post.all
-        end
-        @post = Post.find_by_id(session[:id])
-        erb :'posts/index'
-      end
+    
     
     #BUILDING OUT CRUD
     
     
     #Read - showing all posts
-    #get '/posts' do
+    get '/posts' do
     #attach the posts model so we can view all from double
-    #@posts = Post.all
+    @posts = Post.all
     #render all the posts
-    #erb :'posts/index'
-    #end
+    erb :'posts/index'
+    end
     
     #Create - render a form for user to create a new post
     get '/posts/new' do

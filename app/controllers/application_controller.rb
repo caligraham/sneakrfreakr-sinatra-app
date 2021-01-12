@@ -22,14 +22,14 @@ class ApplicationController < Sinatra::Base
     end
   end
   
-  helpers do
+  helpers do #allows views to access methods
 
-    # returns boolean if user is logged in or not - double bang converts value
+    # double bang converts value to true or false
     def logged_in?
         !!current_user
     end
 
-    def current_user
+    def current_user #memoization / making it so we don't hit the db over & over
       @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
     end
 

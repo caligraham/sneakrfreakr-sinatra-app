@@ -9,4 +9,10 @@ class Post < ActiveRecord::Base
         where("title LIKE ?", "%#{query}%")
     end
 
+    #methods we get from belongs_to:
+    # .user
+    # .user=(accept a user obj as an argument)
+    # .build_user(accept a user attributes hash)
+    # .create_user(accep a user attributes hash)
+
 end

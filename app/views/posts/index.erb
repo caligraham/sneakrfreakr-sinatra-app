@@ -1,12 +1,5 @@
 <h1 style="color:#b39ddb;"> All Posts </h1>
-<form action="/posts" method="get">
-  <div class="row" style="margin-bottom: 0;">
-    <div class="col s5 input-field" style="margin-left: 0; margin-right: 0; padding-left: 0; padding-right: 0;">
-      <input type="text" name="query" id="query" placeholder="Enter Search">
-    </div>
-  </div>
-  <input type="submit" value="Search" class="btn waves-effect deep-purple accent-2">
-</form>
+<h5>Logged in user: <%= current_user.username %> </h5>
 
 <% @posts.each do |post| %>
     <h4><a href="/posts/ <%= post.id %>"><%= post.title %></a></h4>
