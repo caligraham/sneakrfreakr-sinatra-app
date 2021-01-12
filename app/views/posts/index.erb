@@ -1,5 +1,5 @@
 <h1 style="color:#b39ddb;"> All Posts </h1>
-<h5>Logged in user: <%= current_user.username %> </h5>
+<h6>Logged in user: <%= current_user.username %> </h6>
 
 <% @posts.each do |post| %>
     <h4><a href="/posts/ <%= post.id %>"><%= post.title %></a></h4>
