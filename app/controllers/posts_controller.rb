@@ -35,7 +35,6 @@ class PostsController < ApplicationController
         end
     end
 
-    # an issue with the way code is ordered. 
 
     #To display a single post
     get '/posts/:id' do
@@ -83,7 +82,7 @@ class PostsController < ApplicationController
     
      private
 
-
+    #only using internally, call with public method
     def find_post
         @post = Post.find_by_id(params[:id])
     end
